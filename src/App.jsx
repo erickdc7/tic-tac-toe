@@ -1,9 +1,9 @@
 import './App.css'
 
-const TURNS = {
-  X: 'x',
-  O: 'o',
-}
+const TURNS = { 
+  X: 'x', 
+  O: 'o', 
+} 
 
 function App() {
 
