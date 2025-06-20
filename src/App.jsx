@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 const TURNS = {
@@ -5,16 +6,16 @@ const TURNS = {
   O: 'o',
 }
 
-const board = Array(9).fill(null)
-
 const Square = ({ children, updateBoard, index }) => {
-  <div className='square' key={index}>
-    { /* Render the turn here */}
-    { /* Example: <span>{TURNS.X}</span> */}
-  </div>
+  return (
+    <div className='square' >
+      {children}
+    </div>
+  )
 }
 
 function App() {
+  const [board, setBoard] = useState(Array(9).fill(null))
 
   return (
     <main className="board">
@@ -24,7 +25,9 @@ function App() {
         {
           board.map((_, index) => {
             return (
-              
+              <Square key={index} index={index} >
+                {index}
+              </Square>
             )
           })
         }
