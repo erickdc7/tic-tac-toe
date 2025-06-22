@@ -57,6 +57,11 @@ function App() {
     setWinner(null)
   }
 
+  const checkEndGame = (newBoard) => {
+    // Check if the board is full
+    return newBoard.every((square) => square !== null)
+  }
+
   const updateBoard = (index) => {
     // Check if square is already filled
     if (board[index] || winner) return
@@ -74,6 +79,8 @@ function App() {
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
       setWinner(newWinner)
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false) // It's a draw
     }
   }
 
