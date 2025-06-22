@@ -23,15 +23,18 @@ const Square = ({ children, isSelected, updateBoard, index }) => {
 function App() {
   const [board, setBoard] = useState(Array(9).fill(null))
   const [turn, setTurn] = useState(TURNS.X)
+  const [winner, setWinner] = useState(null)
 
   const updateBoard = (index) => {
-
+    // Check if square is already filled
     if (board[index]) return
 
+    // Update board
     const newBoard = [...board]
     newBoard[index] = turn
     setBoard(newBoard)
 
+    // Change turn
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
   }
