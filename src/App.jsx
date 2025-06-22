@@ -99,6 +99,22 @@ function App() {
           {TURNS.O}
         </Square>
       </section>
+
+      {
+        winner == ! null && (
+          <section className='winner'>
+            <div className='text'>
+              <h2>
+                {
+                  winner === false
+                    ? "Empate"
+                    : "Ganó " + winner
+                }
+              </h2>
+            </div>
+          </section>
+        )
+      }
     </main>
   )
 
