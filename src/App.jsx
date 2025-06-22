@@ -37,6 +37,7 @@ function App() {
   const [winner, setWinner] = useState(null)
 
   const checkWinner = (boardToCheck) => {
+    // Check if there is a winner
     for (const combo of WINNER_COMBOS) {
       const [a, b, c] = combo
       if (
@@ -52,7 +53,7 @@ function App() {
 
   const updateBoard = (index) => {
     // Check if square is already filled
-    if (board[index]) return
+    if (board[index] || winner) return
 
     // Update board
     const newBoard = [...board]
@@ -62,6 +63,12 @@ function App() {
     // Change turn
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+
+    // Check for winner
+    const newWinner = checkWinner(newBoard)
+    if (newWinner) {
+      setWinner(newWinner)
+    }
   }
 
   return (
