@@ -108,9 +108,17 @@ function App() {
                 {
                   winner === false
                     ? "Empate"
-                    : "Ganó " + winner
+                    : "Ganó"
                 }
               </h2>
+
+              <header className='win'>
+                {winner && <Square>{winner}</Square>}
+              </header>
+
+              <footer>
+                <button>Empezar de nuevo</button>
+              </footer>
             </div>
           </section>
         )
