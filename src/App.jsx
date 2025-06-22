@@ -25,6 +25,9 @@ function App() {
   const [turn, setTurn] = useState(TURNS.X)
 
   const updateBoard = (index) => {
+
+    if (board[index]) return
+
     const newBoard = [...board]
     newBoard[index] = turn
     setBoard(newBoard)
