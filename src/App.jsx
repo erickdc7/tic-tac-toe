@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import confetti from 'canvas-confetti'
+
 import Square from './components/Square.jsx'
-import { TURNS, WINNER_COMBOS } from './constants.js'
+import { TURNS } from './constants.js'
+import { checkWinnerFrom } from './logic/board.js'
+import { WinnerModal } from './components/WinnerModal.jsx'
+
 import './App.css'
 
 function App() {
@@ -9,20 +13,7 @@ function App() {
   const [turn, setTurn] = useState(TURNS.X)
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (boardToCheck) => {
-    // Check if there is a winner
-    for (const combo of WINNER_COMBOS) {
-      const [a, b, c] = combo
-      if (
-        boardToCheck[a] &&
-        boardToCheck[a] === boardToCheck[b] &&
-        boardToCheck[a] === boardToCheck[c]
-      ) {
-        return boardToCheck[a]
-      }
-    }
-    return null
-  }
+
 
   const resetGame = () => {
     setBoard(Array(9).fill(null))
@@ -49,7 +40,7 @@ function App() {
     setTurn(newTurn)
 
     // Check for winner
-    const newWinner = checkWinner(newBoard)
+    const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
       confetti()
       setWinner(newWinner)
@@ -88,29 +79,7 @@ function App() {
         </Square>
       </section>
 
-      {
-        winner !== null && (
-          <section className='winner'>
-            <div className='text'>
-              <h2>
-                {
-                  winner === false
-                    ? "Empate"
-                    : "Ganó:"
-                }
-              </h2>
-
-              <header className='win'>
-                {winner && <Square>{winner}</Square>}
-              </header>
-
-              <footer>
-                <button onClick={resetGame}>Empezar de nuevo</button>
-              </footer>
-            </div>
-          </section>
-        )
-      }
+      <WinnerModal resetGame={resetGame} winner={winner} />
     </main>
   )
 
