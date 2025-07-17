@@ -1,12 +1,33 @@
-# React + Vite
+# ✨ Tic Tac Toe - Tres en Raya
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un pequeño proyecto hecho con **React** y **Vite**, donde puedes jugar al clásico juego de Tres en Raya (Tic Tac Toe). Ideal para practicar lógica, manejo de estados y estilos en React.
 
-Currently, two official plugins are available:
+## 🖥️ Vista previa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Vista previa del juego](./src/assets/Captura.jpeg)
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologías Usadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **HTML** – Estructura básica del proyecto.
+- **CSS** – Estilos personalizados para diseño y animaciones.
+- **JavaScript (ES6+)** – Lógica principal del juego.
+- **React** – Librería para construir la interfaz:
+  - `useState` para manejar los estados del turno, las celdas y el ganador.
+  - `useEffect` para controlar efectos como el guardado del juego en localStorage.
+- **Vite** – Herramienta de desarrollo para crear el proyecto y levantar el servidor local.
+
+## 🧠 Funcionalidades
+
+- Dos jugadores en un mismo dispositivo.
+- Turnos indicados en la parte superior.
+- Detecta automáticamente el ganador o un empate.
+- Animaciones suaves al marcar una casilla.
+- Diseño responsivo.
+- Reinicio de partida con un solo clic.
+
+## 🛠️ Instalación
+
+1. Clona el repositorio: `git clone https://github.com/erickdc7/tic-tac-toe.git`
+2. Entra en el proyecto: `cd tic-tac-toe`
+3. Instala las dependencias: `npm install`
+4. Inicia el servidor de desarrollo: `npm run dev`
