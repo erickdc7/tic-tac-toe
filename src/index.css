@@ -83,6 +83,7 @@ footer button:hover,
   width: fit-content;
   position: relative;
   border-radius: 10px;
+  gap: 10px;
 }
 
 .turn .square,
