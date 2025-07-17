@@ -6,8 +6,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #000;
+  background-image: url("./assets/bg-game.png");
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,31 +32,41 @@ body {
 
 .board {
   width: fit-content;
-  margin: 40px auto;
+  /* margin: 40px auto; */
   text-align: center;
+  border-radius: 10px;
+  padding: 25px;
+
+  background: rgba(255, 255, 255, 0.15); /* fondo semitransparente */
+  box-shadow: 0 4px 12px rgba(31, 38, 135, 0.2); /* sombra más suave */
+  backdrop-filter: blur(10px); /* desenfoque de fondo */
+  -webkit-backdrop-filter: blur(10px); /* soporte en Safari */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* borde sutil */
 }
 
 .board h1 {
-  color: #eee;
-  margin-bottom: 16px;
+  color: #495968;
+  margin-bottom: 24px;
 }
 
+footer button,
 .board button {
-  padding: 8px 12px;
+  padding: 10px 15px;
   margin: 25px;
-  background: transparent;
-  border: 2px solid #eee;
-  color: #eee;
-  width: 100px;
+  background: #c38d5b;
+  color: #fff;
   border-radius: 5px;
+  border-width: 0;
   transition: 0.2s;
   font-weight: bold;
   cursor: pointer;
+  font-size: 16px;
 }
 
+footer button:hover,
 .board button:hover {
-  background: #eee;
-  color: #222;
+  background: #a06f45;
+  color: #fff;
 }
 
 .board .game {
@@ -68,7 +78,7 @@ body {
 .turn {
   display: flex;
   justify-content: center;
-  margin: 15px auto;
+  margin: 25px auto;
   width: fit-content;
   position: relative;
   border-radius: 10px;
@@ -84,7 +94,7 @@ body {
 
 .square.is-selected {
   color: #fff;
-  background: #09f;
+  background: #bfaed6;
 }
 
 .winner {
@@ -99,16 +109,17 @@ body {
 }
 
 .winner .text {
-  background: #111;
+  background: #fff;
   height: 300px;
   width: 320px;
-  border: 2px solid #eee;
+  border: 2px solid transparent;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  color: #374048;
 }
 
 .winner .win {
@@ -117,15 +128,34 @@ body {
   border-radius: 10px;
   display: flex;
   gap: 15px;
+  color: #374048;
 }
 
 .square {
   width: 100px;
   height: 100px;
-  border: 2px solid #eee;
+  /* border: 2px solid #000; */
   border-radius: 5px;
   display: grid;
   place-items: center;
   cursor: pointer;
   font-size: 48px;
+  background: #f5f5f5;
+  color: #374048;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.square span {
+  display: inline-block;
+  animation: pop 0.15s ease-out;
 }
