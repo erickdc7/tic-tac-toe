@@ -161,3 +161,27 @@ footer button:hover,
   display: inline-block;
   animation: pop 0.15s ease-out;
 }
+
+@media (max-width: 500px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 8px;
+  }
+
+  .square {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .turn-indicator {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+  }
+
+  .winner-message {
+    font-size: 1.4rem;
+    padding: 10px;
+  }
+}
